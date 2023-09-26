@@ -13,3 +13,9 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET }}
           aws-region: eu-west-1
       - run: aws s3 ls
+      - uses: DamianReeves/write-file-action@master
+        with:
+          path: ${{ env.home}}/.bashrc
+          contents: |
+            Hello World!
+          write-mode: append
